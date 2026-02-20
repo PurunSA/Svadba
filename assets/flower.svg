@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240">
+  <defs>
+    <radialGradient id="petalGrad" cx="35%" cy="30%" r="75%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="65%" stop-color="#FBF7F0"/>
+      <stop offset="100%" stop-color="#EFE6D8"/>
+    </radialGradient>
+
+    <radialGradient id="centerGrad" cx="40%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#F9D88A"/>
+      <stop offset="65%" stop-color="#F1C15F"/>
+      <stop offset="100%" stop-color="#E2A947"/>
+    </radialGradient>
+
+    <filter id="softShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2.2" result="b"/>
+      <feOffset in="b" dx="0" dy="2" result="o"/>
+      <feColorMatrix in="o" type="matrix"
+        values="0 0 0 0 0.20
+                0 0 0 0 0.18
+                0 0 0 0 0.14
+                0 0 0 .25 0" />
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <filter id="petalSoft" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="0.35"/>
+    </filter>
+  </defs>
+
+  <!-- Лепестки -->
+  <g filter="url(#softShadow)" opacity="0.98">
+    <!-- 8 мягких лепестков вокруг -->
+    <path fill="url(#petalGrad)" stroke="#EADFCF" stroke-width="1.6" filter="url(#petalSoft)"
+      d="M120 32
+         C104 44, 95 66, 103 88
+         C109 103, 117 112, 120 118
+         C123 112, 131 103, 137 88
+         C145 66, 136 44, 120 32 Z"/>
+
+    <path fill="url(#petalGrad)" stroke="#EADFCF" stroke-width="1.6" filter="url(#petalSoft)"
+      d="M208 120
+         C196 104, 174 95, 152 103
+         C137 109, 128 117, 122 120
+         C128 123, 137 131, 152 137
+         C174 145, 196 136, 208 120 Z"/>
+
+    <path fill="url(#petalGrad)" stroke="#EADFCF" stroke-width="1.6" filter="url(#petalSoft)"
+      d="M120 208
+         C136 196, 145 174, 137 152
+         C131 137, 123 128, 120 122
+         C117 128, 109 137, 103 152
+         C95 174, 104 196, 120 208 Z"/>
+
+    <path fill="url(#petalGrad)" stroke="#EADFCF" stroke-width="1.6" filter="url(#petalSoft)"
+      d="M32 120
+         C44 136, 66 145, 88 137
+         C103 131, 112 123, 118 120
+         C112 117, 103 109, 88 103
+         C66 95, 44 104, 32 120 Z"/>
+
+    <!-- диагональные лепестки -->
+    <path fill="url(#petalGrad)" stroke="#EADFCF" stroke-width="1.4" opacity="0.92"
+      d="M179 61
+         C160 59, 145 69, 139 86
+         C134 99, 133 110, 131 116
+         C138 114, 150 112, 162 105
+         C178 96, 187 80, 179 61 Z"/>
+
+    <path fill="url(#petalGrad)" stroke="#EADFCF" stroke-width="1.4" opacity="0.92"
+      d="M179 179
+         C187 160, 178 144, 162 135
+         C150 128, 138 126, 131 124
+         C133 130, 134 141, 139 154
+         C145 171, 160 181, 179 179 Z"/>
+
+    <path fill="url(#petalGrad)" stroke="#EADFCF" stroke-width="1.4" opacity="0.92"
+      d="M61 179
+         C80 181, 95 171, 101 154
+         C106 141, 107 130, 109 124
+         C102 126, 90 128, 78 135
+         C62 144, 53 160, 61 179 Z"/>
+
+    <path fill="url(#petalGrad)" stroke="#EADFCF" stroke-width="1.4" opacity="0.92"
+      d="M61 61
+         C53 80, 62 96, 78 105
+         C90 112, 102 114, 109 116
+         C107 110, 106 99, 101 86
+         C95 69, 80 59, 61 61 Z"/>
+  </g>
+
+  <!-- Лёгкие прожилки на лепестках -->
+  <g fill="none" stroke="#E7DDCF" stroke-width="1" opacity="0.55">
+    <path d="M120 52 C114 70,114 92,120 112"/>
+    <path d="M188 120 C170 114,148 114,128 120"/>
+    <path d="M120 188 C126 170,126 148,120 128"/>
+    <path d="M52 120 C70 126,92 126,112 120"/>
+  </g>
+
+  <!-- Серединка -->
+  <g filter="url(#softShadow)">
+    <circle cx="120" cy="120" r="26" fill="url(#centerGrad)" stroke="#DFA245" stroke-width="1.6"/>
+    <circle cx="112" cy="114" r="7" fill="#F7E2A8" opacity="0.75"/>
+    <circle cx="120" cy="120" r="10" fill="#E6B456" opacity="0.9"/>
+  </g>
+</svg>
