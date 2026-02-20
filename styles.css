@@ -1,0 +1,592 @@
+:root{
+  --bg: #f6f1ea;
+  --dark: #2f3a2e;
+  --dark-2: #263126;
+  --light: #ffffff;
+  --text: #2b2b2b;
+  --muted: rgba(255,255,255,.75);
+  --muted-dark: rgba(43,43,43,.65);
+
+  --serif: "Cormorant Garamond", serif;
+  --sans: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --script: "Great Vibes", cursive;
+
+  --container: 980px;
+  --radius: 18px;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+body{
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+}
+
+img{ max-width: 100%; display: block; }
+a{ color: inherit; text-decoration: none; }
+
+.container{
+  width: min(var(--container), calc(100% - 40px));
+  margin: 0 auto;
+}
+
+.section{
+  position: relative;
+  padding: 90px 0;
+}
+
+.section__inner{ position: relative; z-index: 2; }
+.section__inner--narrow{ width: min(720px, 100%); margin: 0 auto; }
+
+.section--light{ background: var(--bg); }
+.section--dark{
+  background: var(--dark);
+  color: var(--bg);
+}
+
+.section--torn{
+  overflow: visible; /* чтобы boundary-декор не обрезался */
+}
+
+.torn{
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  opacity: 1;
+  pointer-events: none;
+}
+.torn--top{ top: -1px; }
+.torn--bottom{ bottom: -1px; }
+
+.lights{
+  position: absolute;
+  left: -5%;
+  width: 110%;
+  z-index: 1;
+  opacity: .85;
+  pointer-events: none;
+}
+.lights--top{ top: 40px; }
+.lights--bottom{ bottom: 40px; transform: scaleY(-1); }
+
+.title{
+  margin: 0;
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 600;
+  letter-spacing: .12em;
+  font-size: clamp(34px, 4vw, 56px);
+  line-height: 1.05;
+}
+.title--light{ color: var(--bg); }
+
+.subtitle{
+  margin-top: 10px;
+  text-align: center;
+  font-family: var(--serif);
+  letter-spacing: .06em;
+  font-size: 16px;
+  opacity: .85;
+}
+.subtitle--script{
+  font-family: var(--script);
+  letter-spacing: .02em;
+  font-size: 30px;
+  opacity: .9;
+}
+
+.text{
+  margin: 22px 0 0;
+  font-weight: 300;
+  line-height: 1.65;
+  font-size: 16px;
+}
+.text--center{ text-align: center; }
+.muted{ opacity: .75; }
+
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 18px;
+  border-radius: 999px;
+  font-family: var(--serif);
+  letter-spacing: .14em;
+  font-size: 12px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  transition: transform .12s ease, opacity .12s ease, background .12s ease;
+  cursor: pointer;
+}
+.btn:hover{ transform: translateY(-1px); }
+.btn--ghost{
+  border-color: rgba(43,43,43,.25);
+  background: transparent;
+  color: var(--text);
+}
+.btn--dark{
+  background: var(--dark-2);
+  color: var(--bg);
+  border-color: rgba(255,255,255,.18);
+}
+.btn--light{
+  background: rgba(255,255,255,.12);
+  color: var(--bg);
+  border-color: rgba(255,255,255,.28);
+}
+.btn--full{ width: 100%; border-radius: 12px; padding: 16px 18px; }
+
+/* HERO */
+.hero{
+  position: relative;
+  padding: 60px 0 80px;
+  background: var(--bg);
+  overflow: hidden;
+}
+.hero__inner{
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+.hero__date{
+  font-family: var(--serif);
+  letter-spacing: .18em;
+  font-size: 14px;
+  opacity: .8;
+}
+.hero__names{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;   /* важно */
+  margin-bottom: 10px;
+}
+
+/* Общий стиль для имён */
+.hero__name{
+  font-family: 'Great Vibes', cursive;
+  font-size: clamp(56px, 9vw, 110px);
+  line-height: 0.9;       /* уменьшает расстояние */
+  margin: 0;
+}
+
+/* Евгений — левее */
+.hero__name:first-of-type{
+  text-align: center;
+}
+
+/* Анна — правее */
+.hero__name:last-of-type{
+  text-align: center;
+}
+
+/* & — по центру и компактнее */
+.hero__and{
+  font-family: 'Great Vibes';
+  font-style: italic;
+  font-size: clamp(28px, 4vw, 48px);
+  margin: 4px 0;          /* уменьшили отступ */
+  text-align: center;
+  line-height: 1;
+}
+
+
+.hero__photo{
+  width: min(340px, 82vw);
+  aspect-ratio: 3/4;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,.10);
+  border: 1px solid rgba(0,0,0,.06);
+}
+.hero__photo img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero__scroll{ margin-top: 10px; }
+
+.hero__decor{
+  position: absolute;
+  z-index: 0;
+  opacity: .65;
+  pointer-events: none;
+}
+.hero__leaf--left{ top: 30px; left: 30px; width: 120px; }
+.hero__leaf--right{ top: 120px; right: 30px; width: 150px; transform: rotate(8deg); }
+
+/* Big date */
+.big-date{
+  margin-top: 34px;
+  text-align: center;
+  font-family: var(--serif);
+  font-weight: 500;
+  letter-spacing: .14em;
+  font-size: clamp(42px, 4.6vw, 74px);
+}
+
+/* Mini calendar */
+.mini-calendar{
+  margin: 28px auto 0;
+  width: min(320px, 100%);
+  text-align: center;
+  opacity: .88;
+}
+.mini-calendar__month{
+  font-family: var(--serif);
+  letter-spacing: .18em;
+  font-size: 12px;
+  margin-bottom: 10px;
+}
+.mini-calendar__grid{
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  font-size: 11px;
+}
+.mini-calendar__dow{
+  opacity: .7;
+  letter-spacing: .08em;
+}
+.mini-calendar__day{
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 6px;
+  opacity: .85;
+}
+.mini-calendar__day--empty{ opacity: 0; }
+.mini-calendar__day--selected{
+  outline: 1px solid rgba(255,255,255,.5);
+  background: rgba(255,255,255,.10);
+  opacity: 1;
+}
+
+/* Place */
+.icon-flower{
+  width: 70px;
+  margin: 0 auto 8px;
+  opacity: .95;
+}
+.place{
+  margin-top: 26px;
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+}
+.place__pin{
+  width: 34px;
+  opacity: .8;
+  margin-top: 6px;
+}
+
+/* Timeline */
+.timeline{
+  margin-top: 34px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  text-align: center;
+}
+.timeline__time{
+  font-family: var(--serif);
+  font-size: 22px;
+  letter-spacing: .08em;
+}
+.timeline__label{
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: .85;
+  line-height: 1.35;
+}
+.divider-leaf{
+  height: 1px;
+  margin: 34px auto 0;
+  width: min(520px, 100%);
+  background: rgba(255,255,255,.18);
+  border-radius: 999px;
+}
+
+/* Wishes */
+.wishes{
+  margin-top: 26px;
+}
+
+/* RSVP */
+.rsvp__deadline{
+  text-align: center;
+  font-family: var(--serif);
+  letter-spacing: .14em;
+  font-size: 22px;
+  margin-top: 10px;
+}
+
+.form{
+  margin-top: 26px;
+  display: grid;
+  gap: 18px;
+}
+.field{
+  border: 0;
+  padding: 0;
+  margin: 0;
+}
+.field__label{
+  font-family: var(--serif);
+  letter-spacing: .16em;
+  font-size: 12px;
+  text-transform: uppercase;
+  opacity: .9;
+  margin-bottom: 10px;
+}
+.input{
+  width: 100%;
+  padding: 14px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.28);
+  background: rgba(255,255,255,.08);
+  color: var(--bg);
+  outline: none;
+}
+.input::placeholder{ color: rgba(255,255,255,.65); }
+.input:focus{ border-color: rgba(255,255,255,.55); }
+
+.check{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  opacity: .92;
+  margin: 10px 0;
+}
+.check input{
+  width: 16px; height: 16px;
+  accent-color: rgba(255,255,255,.85);
+}
+.checks-grid{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 14px;
+}
+
+.alert{
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 14px;
+}
+.alert--ok{ background: rgba(255,255,255,.14); border: 1px solid rgba(255,255,255,.26); }
+.alert--err{ background: rgba(255,100,100,.12); border: 1px solid rgba(255,140,140,.25); }
+
+.form__note{
+  font-size: 12px;
+  opacity: .8;
+  line-height: 1.5;
+}
+.form__note a{
+  text-decoration: underline;
+}
+
+/* Footer */
+.footer{
+  padding: 34px 0 48px;
+}
+.footer__inner{
+  display: grid;
+  gap: 10px;
+  justify-items: center;
+}
+.footer__top{
+  font-family: var(--serif);
+  letter-spacing: .12em;
+  opacity: .8;
+}
+.footer__small{
+  font-size: 12px;
+  opacity: .6;
+}
+
+/* Responsive */
+@media (max-width: 860px){
+  .timeline{ grid-template-columns: repeat(2, 1fr); }
+  .checks-grid{ grid-template-columns: 1fr; }
+  .hero__leaf--left{ left: 10px; top: 18px; width: 90px; }
+  .hero__leaf--right{ right: 10px; top: 90px; width: 110px; }
+}
+
+@media (max-width: 420px){
+  .section{ padding: 72px 0; }
+  .btn--full{ border-radius: 12px; }
+}
+
+/* Декор на границе между секциями */
+.boundary{
+  position: absolute;
+  left: 50%;
+  z-index: 3;               /* выше torn и гирлянд фоновых */
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+.boundary--garland{
+  background-repeat: no-repeat;
+  background-size: 100% 120px;
+  background-image: url("assets/lights.svg"); /* не tile */
+}
+
+/* Верхняя граница зелёной секции */
+.boundary--top{
+  top: 0;
+  transform: translateX(-50%) translateY(-50%);
+}
+
+
+/* Ромашка на границе */
+.boundary--flower{
+  width: 130px; /* было 86 */
+  opacity: .98;
+  --rot: 0deg;
+  transform: translateX(-50%) translateY(-50%) rotate(var(--rot));
+}
+
+@media (max-width: 520px){
+  .boundary--flower{ width: 100px; } /* было 66 */
+  .boundary--garland{ width: 125%; }
+}
+
+
+.boundary--garland{
+  position: absolute;
+  top: 0;
+  left: 0;                 /* вместо left:50% */
+  width: 100vw;            /* ширина ровно по окну */
+  transform: translateY(-50%); /* без translateX */
+  height: 120px;
+  opacity: .95;
+
+  background-image: url("assets/lights-tile.svg");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: 600px 120px;
+  pointer-events: none;
+  z-index: 3;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* ===== HERO slider ===== */
+.hero__slider{
+  position: relative;
+  width: min(420px, 86vw);
+  aspect-ratio: 3/4;              /* красивый вертикальный формат как в макете */
+  margin-top: 6px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(0,0,0,.12);
+  border: 1px solid rgba(0,0,0,.06);
+  background: #fff;
+}
+
+.hero__track{
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform .35s ease;
+  will-change: transform;
+}
+
+.hero__slide{
+  min-width: 100%;
+  height: 100%;
+}
+
+.hero__slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* стрелки */
+.hero__nav{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.55);
+  background: rgba(0,0,0,.28);
+  color: #fff;
+  font-size: 28px;
+  line-height: 1;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+.hero__nav:hover{ background: rgba(0,0,0,.36); }
+.hero__nav--prev{ left: 10px; }
+.hero__nav--next{ right: 10px; }
+
+/* точки */
+.hero__dots{
+  position: absolute;
+  left: 50%;
+  bottom: 10px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,.22);
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+.hero__dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(255,255,255,.55);
+  cursor: pointer;
+}
+.hero__dot.is-active{
+  background: rgba(255,255,255,.95);
+}
+
+/* на мобилке стрелки чуть меньше */
+@media (max-width: 520px){
+  .hero__nav{ width: 38px; height: 38px; font-size: 26px; }
+}
+
+.hero__slider{
+  margin: 0 auto;         /* центрирование */
+  position: relative;
+  z-index: 5;             /* чтобы декор не перекрывал */
+}
+
+.hero__nav, .hero__dots{
+  z-index: 10;
+}
+
+.hero__nav, .hero__dot{
+  pointer-events: auto;
+}
+
+.hero__nav{
+  z-index: 20;
+}
+
+.hero__dots{
+  z-index: 20;
+}
+
+/* Только для второй фотографии */
+.hero__slide:nth-child(2) img{
+  object-position: 30% center;
+}
