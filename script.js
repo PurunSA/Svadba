@@ -1,7 +1,7 @@
 // ================== GOOGLE FORM SETTINGS ==================
 // Вставьте сюда ваши ссылки и entry ID
-const GOOGLE_FORM_ACTION_URL = "PASTE_GOOGLE_FORM_ACTION_URL_HERE"; // .../formResponse
-const FALLBACK_FORM_PUBLIC_URL = "PASTE_GOOGLE_FORM_PUBLIC_URL_HERE"; // .../viewform
+const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfueRdSEg7kvs6mFFb6ScV6ePsdS_O-hO1XwMc7Qb-q_UH6nw/formResponse"; // .../formResponse
+const FALLBACK_FORM_PUBLIC_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfueRdSEg7kvs6mFFb6ScV6ePsdS_O-hO1XwMc7Qb-q_UH6nw/viewform?usp=publish-editor"; // .../viewform
 
 const ENTRY_FULL_NAME  = "entry.1111111111";
 const ENTRY_ATTENDANCE = "entry.2222222222";
@@ -175,4 +175,5 @@ function initHeroSlider() {
   track.addEventListener("touchend", onTouchEnd, { passive: true });
 
   render();
+
 }
