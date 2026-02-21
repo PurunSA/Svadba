@@ -1,11 +1,11 @@
 // ================== GOOGLE FORM SETTINGS ==================
 // Вставьте сюда ваши ссылки и entry ID
-const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfueRdSEg7kvs6mFFb6ScV6ePsdS_O-hO1XwMc7Qb-q_UH6nw/formResponse"; // .../formResponse
-const FALLBACK_FORM_PUBLIC_URL = "https://docs.google.com/forms/d/e/1FAIpQLSfueRdSEg7kvs6mFFb6ScV6ePsdS_O-hO1XwMc7Qb-q_UH6nw/viewform?usp=publish-editor"; // .../viewform
+const GOOGLE_FORM_ACTION_URL = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSc27KYfZPcpOh-HLLv-ZBhtmkImA2mq_lXzI6k3guJRWVfC2Q/formResponse"; // .../formResponse
+const FALLBACK_FORM_PUBLIC_URL = "https://docs.google.com/forms/d/e/1FAIpQLSc27KYfZPcpOh-HLLv-ZBhtmkImA2mq_lXzI6k3guJRWVfC2Q/viewform?usp=publish-editor"; // .../viewform
 
-const ENTRY_FULL_NAME  = "entry.873844360";
-const ENTRY_ATTENDANCE = "entry.1470779588";
-const ENTRY_DRINKS     = "entry.330147117";
+const ENTRY_FULL_NAME  = "entry.1699330842";
+const ENTRY_ATTENDANCE = "entry.69753393";
+const ENTRY_DRINKS     = "entry.1336756917";
 // ==========================================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -177,4 +177,5 @@ function initHeroSlider() {
   render();
 
 }
+
 
