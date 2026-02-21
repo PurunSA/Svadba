@@ -526,4 +526,34 @@ a{ color: inherit; text-decoration: none; }
 /* Only for the second photo */
 .hero__slide:nth-child(2) img{
   object-position: 30% center;
+
+}
+
+/* ===== FIX: чекбоксы/радио видны на Android/iOS ===== */
+.check input[type="checkbox"],
+.check input[type="radio"]{
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  flex: 0 0 18px;
+
+  /* главное — контраст */
+  accent-color: #ffffff;                 /* цвет галочки/точки */
+  background-color: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.55);
+  border-radius: 4px;
+
+  /* чтобы браузер не делал “серым” */
+  filter: none;
+  opacity: 1;
+}
+
+.check input[type="radio"]{
+  border-radius: 999px;
+}
+
+.check input[type="checkbox"]:checked,
+.check input[type="radio"]:checked{
+  background-color: rgba(255,255,255,.22);
+  border-color: rgba(255,255,255,.85);
 }
